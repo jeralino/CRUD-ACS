@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>CRUD App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>CRUD Application</h1>
+        <form action="/add" method="POST">
+            <input type="text" name="name" placeholder="Enter item name" required>
+            <button type="submit">Add Item</button>
+        </form>
+        <ul>
+            {% for item in items %}
+                <li>
+                    {{ item[1] }}
+                    <a href="/edit/{{ item[0] }}">Edit</a>
+                    <a href="/delete/{{ item[0] }}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
